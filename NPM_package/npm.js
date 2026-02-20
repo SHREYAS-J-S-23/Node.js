@@ -5,8 +5,7 @@
 //npm uninstall <package_name> - to uninstall a package
 //npm init - to create a package.json file
 
-const _ = require('lodash');
-
+const loadsh=require('loadsh');
 const items=[1,[2,[3,[4]]]];
-const newItems=_f.flattenDeep(items);
+const newItems=loadsh.flattenDeep(items);
 console.log(newItems);

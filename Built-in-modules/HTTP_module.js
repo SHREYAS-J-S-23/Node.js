@@ -1,19 +1,21 @@
-const http=require('http');
+const http =require('http');
 
-const server =http.createServer((req,res)=>{
-// //    console.log(req);
-if(req.url==='/'){
-    res.end('Welcome to our home page');
-}
-if(req.url==='/about')
-{
-    res.end('Here is the about page')
-}
-res.end(`<h1>Error: Page not found</h1>
-    <p>Sorry the page you are looking for does not exist</p>
-    <a href="/">back to home</a>`);
-// res.write('Welcome to our home page');
-// res.end();    
+const server = http.createServer((req,res)=>{
+    if(req.url==='/'){
+        res.end('Welcome to our home page');
+    }
+    else if(req.url==='/about'){
+        res.end('Here is our short history');
+    }
+    else{
+        res.end(`
+        <h1>OOPS!</h1>
+        <p>We can't seem to find the page you are looking for</p>
+        <a href="/">back home</a>
+        `);
+    }
+});
+
+server.listen(4000,()=>{
+    console.log('Server is listening on port 5000....');
 })
-
-server.listen(5000);
